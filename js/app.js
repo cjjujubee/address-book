@@ -1,20 +1,18 @@
-var addContacts = function(){
-	// should add new contact obj to array
-	var firstName,
-		lastName,
-		phoneNumber,
-		street,
-		city,
-		state;
-	firstName = "Moose";
-	console.log(firstName);
+var addContacts = function() {
+    // should add new contact obj to array
+    var firstName = $('input[name="firstName"]').val(),
+        lastName = $('input[name="lastName"]').val(),
+        phoneNumber = $('input[name="phoneNumber"]').val(),
+        street = $('input[name="street"]').val(),
+        city = $('input[name="city"]').val(),
+        state = $('input[name="state"]').val();
 };
 
-var formListener = function(){
-	$('form').on('submit', function(e) {
+var formListener = function() {
+    $('form').on('submit', function(e) {
         e.preventDefault();
-		addContacts();
-	});
+        addContacts();
+    });
 };
 
 $(document).ready(function() {
