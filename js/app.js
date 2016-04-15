@@ -17,7 +17,7 @@ var formListener = function(){
 };
 
 $(document).ready(function() {
-   	var contactsArray = [{
+    var contactsArray = [{
         contactName: {
             first: "Anne",
             last: "Perkins"
@@ -30,23 +30,23 @@ $(document).ready(function() {
         }
     }, {
         contactName: {
-            first: "Anne",
-            last: "Perkins"
+            first: "Andy",
+            last: "Dwyer"
         },
-        contactPhoneNumber: 5555555,
+        contactPhoneNumber: 5555556,
         contactAddress: {
-            street: "478 Maple Rd",
+            street: "479 Maple Rd",
             city: "Pawnee",
             state: "IN"
         }
     }, {
         contactName: {
-            first: "Anne",
-            last: "Perkins"
+            first: "Donna",
+            last: "Meagle"
         },
-        contactPhoneNumber: 5555555,
+        contactPhoneNumber: 5555557,
         contactAddress: {
-            street: "478 Maple Rd",
+            street: "480 Maple Rd",
             city: "Pawnee",
             state: "IN"
         }
