@@ -1,0 +1,24 @@
+.container {
+    width: 70rem;
+    background-color: #eee;
+    padding: 3rem;
+    margin: 2rem auto;
+}
+
+header {
+    text-align: center;
+    padding: .25em;
+    margin-bottom: 1.75em;
+}
+
+label {
+    display: block
+}
+
+.contactForm span {
+    display: inline-block;
+}
+
+form label {
+    display: block;
+}
