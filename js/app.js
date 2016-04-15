@@ -7,11 +7,12 @@ var addContacts = function(){
 		city,
 		state;
 	firstName = "Moose";
-	alert(firstName);
+	console.log(firstName);
 };
 
 var formListener = function(){
-	$('form').on('submit', function(){
+	$('form').on('submit', function(e) {
+        e.preventDefault();
 		addContacts();
 	});
 };
