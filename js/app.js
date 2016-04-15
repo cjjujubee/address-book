@@ -1,5 +1,5 @@
-var Contact = function(contactTemplate) {
-    this.firstName = contactTemplate.firstName;
+var contactMaker = function(contactTemplate) { //gets the object that has been passed 
+    this.firstName = contactTemplate.firstName; 
     this.lastName = contactTemplate.lastName;
     this.phoneNumber = contactTemplate.phoneNumber;
     this.street = contactTemplate.street;
@@ -7,14 +7,16 @@ var Contact = function(contactTemplate) {
     this.state = contactTemplate.state;
 };
 
-var addContacts = function(){
+var pushContact = function(newContact){
     // Will add contacts to the array
+
 };
 
 var formListener = function() {
     $('form').on('submit', function(e) {
         e.preventDefault();
-        var contactTemplate = {
+        var newContact, 
+            contactTemplate = { //captures the information from the form
             firstName: $('input[name="firstName"]').val(),
             lastName: $('input[name="lastName"]').val(),
             phoneNumber: $('input[name="phoneNumber"]').val(),
@@ -22,7 +24,10 @@ var formListener = function() {
             city: $('input[name="city"]').val(),
             state: $('input[name="state"]').val()
         };
-        addContacts();
+        // run contactMaker on template object; 
+        // store result it in variable
+        newContact = contactMaker(contactTemplate); 
+        pushContact(newContact);
     });
 };
 
