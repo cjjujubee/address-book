@@ -1,3 +1,13 @@
+var addContacts = function(){
+	// should add new contact obj to array
+	var firstName,
+		lastName,
+		phoneNumber,
+		street,
+		city,
+		state;
+};
+
 $(document).ready(function() {
     var contactsArray = [{
         contactName: {
