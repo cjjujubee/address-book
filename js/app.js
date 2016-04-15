@@ -1,4 +1,4 @@
-var contactMaker = function(contactTemplate) { //gets the object that has been passed 
+var Contact = function(contactTemplate) { //gets the object that has been passed 
     this.firstName = contactTemplate.firstName; 
     this.lastName = contactTemplate.lastName;
     this.phoneNumber = contactTemplate.phoneNumber;
@@ -7,12 +7,14 @@ var contactMaker = function(contactTemplate) { //gets the object that has been p
     this.state = contactTemplate.state;
 };
 
-var pushContact = function(newContact){
+var pushContact = function(newContact, contactsArray){
     // Will add contacts to the array
+    contactsArray.push(newContact);
+    console.log(contactsArray);
 
 };
 
-var formListener = function() {
+var formListener = function(contactsArray) {
     $('form').on('submit', function(e) {
         e.preventDefault();
         var newContact, 
@@ -26,8 +28,8 @@ var formListener = function() {
         };
         // run contactMaker on template object; 
         // store result it in variable
-        newContact = contactMaker(contactTemplate); 
-        pushContact(newContact);
+        newContact = new Contact(contactTemplate);
+        pushContact(newContact, contactsArray);
     });
 };
 
@@ -66,5 +68,5 @@ $(document).ready(function() {
             state: "IN"
         }
     }];
-    formListener();
+    formListener(contactsArray);
 });
