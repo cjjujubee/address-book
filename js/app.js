@@ -1,5 +1,5 @@
-var Contact = function(contactTemplate) { //gets the object that has been passed 
-    this.firstName = contactTemplate.firstName; 
+var Contact = function(contactTemplate) { //gets the object that has been passed
+    this.firstName = contactTemplate.firstName;
     this.lastName = contactTemplate.lastName;
     this.phoneNumber = contactTemplate.phoneNumber;
     this.street = contactTemplate.street;
@@ -10,14 +10,26 @@ var Contact = function(contactTemplate) { //gets the object that has been passed
 var pushContact = function(newContact, contactsArray){
     // Will add contacts to the array
     contactsArray.push(newContact);
+
+};
+
+var showContactsArray = function(contactsArray){
+    // add members of contactsArray to DOM
+    // for user to enjoy
     console.log(contactsArray);
+    var html = "";
+    $.each(contactsArray, function(i, contact){
+        html += "<h1 class='contactName'>"+ contact.contactName.first + " " +
+        contact.contactName.last +"</h1>";
+        $('body').html(html);
+    });
 
 };
 
 var formListener = function(contactsArray) {
     $('form').on('submit', function(e) {
         e.preventDefault();
-        var newContact, 
+        var newContact,
             contactTemplate = { //captures the information from the form
             firstName: $('input[name="firstName"]').val(),
             lastName: $('input[name="lastName"]').val(),
@@ -26,10 +38,11 @@ var formListener = function(contactsArray) {
             city: $('input[name="city"]').val(),
             state: $('input[name="state"]').val()
         };
-        // run contactMaker on template object; 
+        // run contactMaker on template object;
         // store result it in variable
         newContact = new Contact(contactTemplate);
         pushContact(newContact, contactsArray);
+        showContactsArray(contactsArray);
     });
 };
 
@@ -69,4 +82,5 @@ $(document).ready(function() {
         }
     }];
     formListener(contactsArray);
+    console.log(contactsArray[0].contactName.first);
 });
