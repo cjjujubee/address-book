@@ -6,10 +6,18 @@ var addContacts = function(){
 		street,
 		city,
 		state;
+	firstName = "Moose";
+	alert(firstName);
+};
+
+var formListener = function(){
+	$('form').on('submit', function(){
+		addContacts();
+	});
 };
 
 $(document).ready(function() {
-    var contactsArray = [{
+   	var contactsArray = [{
         contactName: {
             first: "Anne",
             last: "Perkins"
@@ -43,4 +51,6 @@ $(document).ready(function() {
             state: "IN"
         }
     }];
+
+    formListener();
 });
