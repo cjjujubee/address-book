@@ -1,16 +1,27 @@
-var addContacts = function() {
-    // should add new contact obj to array
-    var firstName = $('input[name="firstName"]').val(),
-        lastName = $('input[name="lastName"]').val(),
-        phoneNumber = $('input[name="phoneNumber"]').val(),
-        street = $('input[name="street"]').val(),
-        city = $('input[name="city"]').val(),
-        state = $('input[name="state"]').val();
+var Contact = function(contactTemplate) {
+    this.firstName = contactTemplate.firstName;
+    this.lastName = contactTemplate.lastName;
+    this.phoneNumber = contactTemplate.phoneNumber;
+    this.street = contactTemplate.street;
+    this.city = contactTemplate.city;
+    this.state = contactTemplate.state;
+};
+
+var addContacts = function(){
+    // Will add contacts to the array
 };
 
 var formListener = function() {
     $('form').on('submit', function(e) {
         e.preventDefault();
+        var contactTemplate = {
+            firstName: $('input[name="firstName"]').val(),
+            lastName: $('input[name="lastName"]').val(),
+            phoneNumber: $('input[name="phoneNumber"]').val(),
+            street: $('input[name="street"]').val(),
+            city: $('input[name="city"]').val(),
+            state: $('input[name="state"]').val()
+        };
         addContacts();
     });
 };
@@ -50,6 +61,5 @@ $(document).ready(function() {
             state: "IN"
         }
     }];
-
     formListener();
 });
