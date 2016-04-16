@@ -22,3 +22,11 @@ label {
 form label {
     display: block;
 }
+
+.contactInfo {
+    list-style: none;
+}
+
+.contactDisplay {
+    padding-top: 1em;
+}
