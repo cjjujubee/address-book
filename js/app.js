@@ -22,14 +22,17 @@ var showContactsArray = function(contactsArray){
     // for user to enjoy
     console.log(contactsArray);
     var html = "";
-    $.each(contactsArray, function(i, contact){
-        html += "<li class='contactDisplay'>"+ contact.contactName.first + " " +
-        contact.contactName.last + "<br>" + contact.phoneNumber + "<br>" + contact.contactAddress.street + "<br>" + contact.contactAddress.city + "<br>" + contact.contactAddress.state + "<br>" + "</li>";
-        $('.contactInfo').html(html);
+    $.each(contactsArray, function(i, contact){ //adds contact information to HTML
+        html += '<li><p class="contactInfo"><a href="#">'+ contact.contactName.first + " " +
+        contact.contactName.last + '</a></p><p class="contactDisplay">' + contact.phoneNumber + "<br>" + contact.contactAddress.street + "<br>" + contact.contactAddress.city + ", " + contact.contactAddress.state + "<br>" + "</p></li>";
+        $('.contacts').html(html);
     });
-
-
 };
+
+$('.contacts').on('click', 'li', (function(e){
+            e.preventDefault();
+            $(e.target).closest('p').next().slideToggle('slow');
+        }));
 
 var formListener = function(contactsArray) {
     $('form').on('submit', function(e) {
@@ -51,7 +54,7 @@ var formListener = function(contactsArray) {
     });
 };
 
-$(document).ready(function() {
+$(document).ready(function() { //format of contact information
     var contactsArray = [
         new Contact ({
             firstName: "Ann",
@@ -81,4 +84,5 @@ $(document).ready(function() {
 
     formListener(contactsArray);
     console.log(contactsArray[0].contactName.first);
+    showContactsArray(contactsArray);
 });
