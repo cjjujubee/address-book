@@ -47,10 +47,11 @@ var formListener = function(contactsArray) {
             state: $('input[name="state"]').val()
         };
         // run contactMaker on template object;
-        // store result it in variable
+        // store result in variable
         newContact = new Contact(contactTemplate);
         pushContact(newContact, contactsArray);
         showContactsArray(contactsArray);
+        $('form')[0].reset();
     });
 };
 
