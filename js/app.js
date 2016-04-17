@@ -1,4 +1,4 @@
-var Contact = function(contactTemplate) { //gets the object that has been passed
+var Contact = function(contactTemplate) {
     this.contactName = {
         first:contactTemplate.firstName,
         last:contactTemplate.lastName
@@ -7,7 +7,8 @@ var Contact = function(contactTemplate) { //gets the object that has been passed
     this.contactAddress = {
         street:contactTemplate.street,
         city:contactTemplate.city,
-        state:contactTemplate.state
+        state:contactTemplate.state,
+        zipcode:contactTemplate.zipcode
     };
 };
 
@@ -24,7 +25,7 @@ var showContactsArray = function(contactsArray){
     var html = "";
     $.each(contactsArray, function(i, contact){ //adds contact information to HTML
         html += '<li><p class="contactInfo"><a href="#">'+ contact.contactName.first + " " +
-        contact.contactName.last + '</a></p><p class="contactDisplay">' + contact.phoneNumber + "<br>" + contact.contactAddress.street + "<br>" + contact.contactAddress.city + ", " + contact.contactAddress.state + "<br>" + "</p></li>";
+        contact.contactName.last + '</a></p><p class="contactDisplay">' + contact.phoneNumber + "<br>" + contact.contactAddress.street + "<br>" + contact.contactAddress.city + ", " + contact.contactAddress.state + " " + contact.contactAddress.zipcode + "<br>" + "</p></li>";
         $('.contacts').html(html);
     });
 };
@@ -44,7 +45,8 @@ var formListener = function(contactsArray) {
             phoneNumber: $('input[name="phoneNumber"]').val(),
             street: $('input[name="street"]').val(),
             city: $('input[name="city"]').val(),
-            state: $('input[name="state"]').val()
+            state: $('input[name="state"]').val(),
+            zipcode: $('input[name="zipcode"]').val()
         };
         // run contactMaker on template object;
         // store result in variable
@@ -57,30 +59,30 @@ var formListener = function(contactsArray) {
 
 $(document).ready(function() { //format of contact information
     var contactsArray = [
-        new Contact ({
-            firstName: "Ann",
-            lastName: "Perkins",
-            phoneNumber: "5555555",
-            street: "478 Mapel Road",
-            city: "Pawnee",
-            state: "IN"
-        }),
-        new Contact ({
-            firstName: "Andy",
-            lastName: "Dwyer",
-            phoneNumber: "5555556",
-            street: "479 Mapel Road",
-            city: "Pawnee",
-            state: "IN"
-        }),
-        new Contact ({
-            firstName: "Donna",
-            lastName: "Meagle",
-            phoneNumber: "5555557",
-            street: "471 Mapel Road",
-            city: "Pawnee",
-            state: "IN"
-        })
+        // new Contact ({
+        //     firstName: "Ann",
+        //     lastName: "Perkins",
+        //     phoneNumber: "5555555",
+        //     street: "478 Mapel Road",
+        //     city: "Pawnee",
+        //     state: "IN"
+        // }),
+        // new Contact ({
+        //     firstName: "Andy",
+        //     lastName: "Dwyer",
+        //     phoneNumber: "5555556",
+        //     street: "479 Mapel Road",
+        //     city: "Pawnee",
+        //     state: "IN"
+        // }),
+        // new Contact ({
+        //     firstName: "Donna",
+        //     lastName: "Meagle",
+        //     phoneNumber: "5555557",
+        //     street: "471 Mapel Road",
+        //     city: "Pawnee",
+        //     state: "IN"
+        // })
     ];
 
     formListener(contactsArray);

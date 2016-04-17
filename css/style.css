@@ -1,34 +1,30 @@
-.container {
+/*Formats entire form*/
+.container { 
     width: 30rem;
     background-color: #eee;
     padding: 3rem;
     margin: 2rem auto;
     border: 3px solid black;
+    font-family: 'Slabo 27px', serif;
 }
 
+/*Sets width of the input boxes */
 input {
     width: 100%;
 }
 
-
+/*Address book title*/
 header {
     text-align: center;
-    padding: .25em;
     margin-bottom: 1.75em;
+    font-size: 2em;
 }
 
-label {
-    display: block
-}
-
-/*.contactForm {
-    display: inline-block;
+/*.contactInfo {
+    list-style: none;
 }*/
 
-.contactInfo {
-    list-style: none;
-}
-
+/*Used for toggle for displaying saved contact information */
 .contactDisplay {
     display: none;
 }
